@@ -15,13 +15,12 @@
 # gem 'pg'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: postgres
+  username: root
 
 development:
   <<: *default
@@ -60,6 +59,8 @@ development:
 test:
   <<: *default
   database: demo-rails5_test
+  username: root
+  password:
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
