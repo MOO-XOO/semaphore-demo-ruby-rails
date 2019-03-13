@@ -72,7 +72,7 @@ blocks:
           - sem-service start mysql
           - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
-          - bundle exec rake db:setup
+          - RAILS_ENV=test bundle exec rake db:create db:migrate
 
       jobs:
       - name: RSpec - model tests
